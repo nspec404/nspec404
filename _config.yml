@@ -1,0 +1,98 @@
+# 연구실 홈페이지 기본 정보
+locale: "en-US"
+site_theme: "default"
+title: "NanoSpectroscopy group"
+title_separator: "-"
+name: "NanoSpectroscopy group"
+description: "Probing plasmon-driven chemistry with Raman spectroscopy"
+
+# GitHub 저장소: nspec404/nspec404
+url: "https://nspec404.github.io"
+baseurl: "/nspec404"
+repository: "nspec404/nspec404"
+timezone: "Asia/Seoul"
+
+# 기본 메타데이터 (개인 프로필 사이드바는 표시하지 않음)
+author:
+  name: "NanoSpectroscopy group"
+social:
+  type: "Organization"
+  name: "NanoSpectroscopy group"
+
+# 사용하지 않는 부가 기능
+breadcrumbs: false
+talkmap_link: false
+atom_feed:
+  hide: true
+
+# 페이지 읽기
+encoding: "utf-8"
+include:
+  - _pages
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .github
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/_main.js
+  - assets/js/plugins
+  - assets/js/vendor
+  - CHANGELOG
+  - Capfile
+  - config
+  - Dockerfile
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - local
+  - log
+  - node_modules
+  - "package.json*"
+  - Rakefile
+  - README
+  - tmp
+  - vendor
+  - Gemfile.lock
+  - README.md
+  - LICENSE.md
+  - "*.bak"
+
+# Markdown 내부의 HTML과 표 처리
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+
+# _layouts/single.html 사용 (Academic Pages 기본 파일 필요)
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: false
+      read_time: false
+      comments: false
+      share: false
+      related: false
+
+# 기존 테마의 스타일 처리
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# 검색엔진용 사이트맵
+plugins:
+  - jekyll-sitemap
+
+# 기존 테마의 HTML 압축 설정
+compress_html:
+  clippings: all
+  ignore:
+    envs: development

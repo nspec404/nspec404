@@ -1,0 +1,957 @@
+/* ==========================================================
+   NANOSPECTROSCOPY LAB
+   RESPONSIVE HOME PAGE
+   ========================================================== */
+
+
+/* ==========================================================
+   RESET
+   ========================================================== */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100%;
+
+  background: #ffffff;
+}
+
+
+body {
+  overflow-x: hidden;
+}
+
+
+
+/* ==========================================================
+   REMOVE DEFAULT ACADEMICPAGES HOME ELEMENTS
+   ========================================================== */
+
+.masthead {
+  display: none !important;
+}
+
+
+.page__footer {
+  display: none !important;
+}
+
+
+.page__title {
+  display: none !important;
+}
+
+
+#main,
+#main .page,
+#main .page__inner-wrap,
+#main .page__content {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+#main .page {
+  float: none !important;
+}
+
+
+#main .page__content p {
+  margin: 0;
+}
+
+
+
+/* ==========================================================
+   HOME
+   ========================================================== */
+
+.ns-home {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  background: #ffffff;
+}
+
+
+
+/* ==========================================================
+   HERO
+
+   핵심:
+   브라우저가 작아져도 16:9 비율을 유지하면서
+   전체 디자인이 함께 축소됨.
+   ========================================================== */
+
+.ns-hero {
+  width: 100vw;
+  height: 100svh;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+
+
+/* ==========================================================
+   RESPONSIVE 16:9 STAGE
+
+   이미지 + 메뉴 + 글자 모두 이 영역을 기준으로 배치.
+
+   따라서 브라우저를 줄여도 위치 관계가 유지됨.
+   ========================================================== */
+
+.ns-stage {
+  position: relative;
+
+  width: min(
+    100vw,
+    calc(100svh * 16 / 9)
+  );
+
+  aspect-ratio: 16 / 9;
+
+  flex: 0 0 auto;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  /*
+   * cqw 단위를 사용할 수 있도록 설정
+   * 글씨도 이미지와 함께 비례 축소됨.
+   */
+  container-type: inline-size;
+}
+
+
+
+/* ==========================================================
+   BACKGROUND IMAGE
+   ========================================================== */
+
+.ns-background-image {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: contain;
+  object-position: center top;
+
+  border: 0;
+
+  box-shadow: none;
+
+  z-index: 1;
+}
+
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.ns-header {
+  position: absolute;
+
+  inset: 0 0 auto 0;
+
+  width: 100%;
+  height: 7cqw;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent !important;
+
+  border: 0 !important;
+
+  box-shadow: none !important;
+
+  z-index: 100;
+}
+
+
+
+/* ==========================================================
+   NAVIGATION
+   ========================================================== */
+
+.ns-nav {
+  position: absolute;
+
+  top: 1.25cqw;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.52cqw;
+
+  white-space: nowrap;
+}
+
+
+.ns-nav-left {
+  left: 2.7cqw;
+}
+
+
+.ns-nav-right {
+  right: 2.7cqw;
+}
+
+
+
+/* ==========================================================
+   MENU TEXT
+   ========================================================== */
+
+.ns-nav > a {
+  position: relative;
+
+  display: inline-block;
+
+  padding: 0;
+
+  color: rgba(0, 0, 0, 0.82) !important;
+
+  font-family:
+    "Helvetica Neue",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: clamp(
+    16px,
+    0.82cqw,
+    18px
+  );
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -0.015em;
+
+  text-decoration: none !important;
+}
+
+
+.ns-nav > a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -0.45cqw;
+
+  width: 100%;
+  height: 1px;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  transform: scaleX(0);
+
+  transform-origin: left center;
+
+  transition: transform 200ms ease;
+}
+
+
+.ns-nav > a:hover {
+  color: #000000 !important;
+}
+
+
+.ns-nav > a:hover::after {
+  transform: scaleX(1);
+}
+
+
+
+/* ==========================================================
+   DIVIDER
+   ========================================================== */
+
+.ns-divider {
+  color: rgba(0, 0, 0, 0.30);
+
+  font-family:
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: clamp(
+    9px,
+    0.74cqw,
+    16px
+  );
+
+  font-weight: 300;
+
+  user-select: none;
+}
+
+
+
+/* ==========================================================
+   LOGO
+   ========================================================== */
+
+.ns-logo {
+  position: absolute;
+
+  top: 0.65cqw;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 6.7cqw;
+  height: 3.8cqw;
+
+  background: transparent !important;
+
+  text-decoration: none !important;
+}
+
+
+.ns-logo img {
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  border: 0;
+
+  box-shadow: none;
+}
+
+
+
+/* ==========================================================
+   HEADER SEARCH
+   ========================================================== */
+
+.ns-search {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 1.35cqw;
+  height: 1.35cqw;
+
+  min-width: 14px;
+  min-height: 14px;
+
+  margin-left: 0.25cqw;
+  padding: 0;
+
+  border: 0 !important;
+
+  background: transparent !important;
+
+  color: rgba(0, 0, 0, 0.68);
+
+  cursor: pointer;
+
+  box-shadow: none !important;
+}
+
+
+.ns-search svg {
+  width: 100% !important;
+  height: 100% !important;
+
+  fill: none !important;
+}
+
+
+.ns-search svg circle,
+.ns-search svg line {
+  fill: none !important;
+}
+
+
+.ns-search:hover {
+  color: #000000;
+}
+
+
+
+/* ==========================================================
+   COMMON COPY STYLE
+
+   background:#fff 가 기존 이미지 안에 박혀 있는
+   흐릿한 글씨를 가리는 역할을 함.
+   ========================================================== */
+
+.ns-copy {
+  position: absolute;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  z-index: 20;
+
+  font-family:
+    "Helvetica Neue",
+    "Avenir Next",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+
+
+/* ==========================================================
+   LEFT MAIN TEXT
+   ========================================================== */
+
+.ns-copy-main {
+  left: 6.1%;
+  top: 16.7%;
+
+  width: 43%;
+  height: 38%;
+
+  padding:
+    1.1cqw
+    1.2cqw
+    0.7cqw
+    0.15cqw;
+}
+
+
+
+/* TITLE */
+
+.ns-main-title {
+  display: flex;
+
+  align-items: baseline;
+
+  color: #090909;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+
+.ns-title-light {
+  font-size: 3.35cqw;
+
+  font-weight: 200;
+
+  letter-spacing: -0.07em;
+}
+
+
+.ns-title-bold {
+  font-size: 3.35cqw;
+
+  font-weight: 700;
+
+  letter-spacing: -0.055em;
+}
+
+
+
+/* SHORT LINE */
+
+.ns-small-line {
+  width: 1.5cqw;
+  height: 1px;
+
+  margin-top: 2.8cqw;
+  margin-bottom: 2.0cqw;
+
+  background: #6d7783;
+}
+
+
+
+/* SUBTITLE */
+
+.ns-main-subtitle {
+  color: #5d6674;
+
+  font-size: 1.18cqw;
+
+  font-weight: 300;
+
+  line-height: 1.55;
+
+  letter-spacing: 0.15em;
+}
+
+
+
+/* KEYWORDS */
+
+.ns-main-keywords {
+  margin-top: 3.8cqw;
+
+  color: #596371;
+
+  font-size: 0.73cqw;
+
+  font-weight: 500;
+
+  line-height: 2.05;
+
+  letter-spacing: 0.28em;
+}
+
+
+
+/* ==========================================================
+   BOTTOM LEFT LAB TEXT
+   ========================================================== */
+
+.ns-copy-lab {
+  left: 6.0%;
+  bottom: 4.2%;
+
+  width: 46%;
+  height: 8.4%;
+
+  display: flex;
+
+  align-items: center;
+
+  padding-left: 0.15cqw;
+}
+
+
+
+/* VERTICAL LINE */
+
+.ns-lab-vertical-line {
+  width: 1px;
+  height: 5.1cqw;
+
+  flex: 0 0 auto;
+
+  margin-right: 2.3cqw;
+
+  background: #68727e;
+}
+
+
+
+/* LAB TEXT */
+
+.ns-lab-text {
+  color: #5d6674;
+}
+
+
+.ns-lab-name {
+  font-size: 0.86cqw;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.28em;
+
+  white-space: nowrap;
+}
+
+
+.ns-lab-fields {
+  margin-top: 1.0cqw;
+
+  font-size: 0.65cqw;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: 0.27em;
+
+  white-space: nowrap;
+}
+
+
+.ns-lab-fields span {
+  display: inline-block;
+
+  margin:
+    0
+    1.1cqw;
+}
+
+
+
+/* ==========================================================
+   RIGHT MOTTO
+   ========================================================== */
+
+.ns-copy-motto {
+  top: 9.8%;
+  right: 5.3%;
+
+  width: 17%;
+  height: 23%;
+
+  padding:
+    0.6cqw
+    0.4cqw;
+
+  color: #5b6471;
+
+  font-size: 0.79cqw;
+
+  font-weight: 500;
+
+  line-height: 2.10;
+
+  letter-spacing: 0.31em;
+}
+
+
+.ns-motto-line {
+  width: 3.0cqw;
+  height: 1px;
+
+  margin-top: 3.1cqw;
+
+  background: #6e7782;
+}
+
+
+
+/* ==========================================================
+   SEARCH PANEL CLOSED
+   ========================================================== */
+
+#site-search-panel[aria-hidden="true"] {
+  display: none !important;
+}
+
+
+
+/* ==========================================================
+   SEARCH PANEL OPEN
+   ========================================================== */
+
+#site-search-panel[aria-hidden="false"] {
+  display: flex !important;
+
+  position: fixed !important;
+
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  padding-top: 120px;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.04) !important;
+
+  z-index: 9999 !important;
+}
+
+
+
+/* ==========================================================
+   TRANSPARENT SEARCH AREA
+   ========================================================== */
+
+#site-search-panel .site-search-panel__inner {
+  position: relative;
+
+  width: min(
+    760px,
+    calc(100vw - 60px)
+  );
+
+  max-height: calc(100vh - 160px);
+
+  padding: 24px 30px 30px;
+
+  overflow-y: auto;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(255, 255, 255, 0.20) !important;
+
+  backdrop-filter: blur(7px);
+
+  -webkit-backdrop-filter: blur(7px);
+
+  border:
+    1px solid rgba(0, 0, 0, 0.08);
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 10px 35px
+    rgba(0, 0, 0, 0.06);
+}
+
+
+
+/* ==========================================================
+   SEARCH BOX
+   ========================================================== */
+
+#site-search-panel .site-search-box {
+  display: flex !important;
+
+  align-items: center;
+
+  gap: 13px;
+
+  width: 100%;
+
+  padding:
+    4px 0 14px;
+
+  background: transparent !important;
+
+  border: 0 !important;
+
+  border-bottom:
+    1px solid
+    rgba(0, 0, 0, 0.30) !important;
+
+  box-shadow: none !important;
+}
+
+
+
+/* SEARCH PANEL ICON */
+
+#site-search-panel .site-search-box__icon {
+  display: block !important;
+
+  flex: 0 0 20px !important;
+
+  width: 20px !important;
+  height: 20px !important;
+
+  min-width: 20px !important;
+  min-height: 20px !important;
+
+  max-width: 20px !important;
+  max-height: 20px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  fill: none !important;
+
+  stroke: rgba(0, 0, 0, 0.70) !important;
+
+  stroke-width: 1.6 !important;
+}
+
+
+#site-search-panel .site-search-box__icon circle,
+#site-search-panel .site-search-box__icon line {
+  fill: none !important;
+}
+
+
+
+/* SEARCH INPUT */
+
+#site-search-input {
+  flex: 1;
+
+  width: 100%;
+
+  margin: 0 !important;
+
+  padding: 6px 0 !important;
+
+  border: 0 !important;
+
+  outline: 0 !important;
+
+  background: transparent !important;
+
+  box-shadow: none !important;
+
+  color: #111111 !important;
+
+  font-size: 19px;
+
+  font-weight: 300;
+}
+
+
+#site-search-input::placeholder {
+  color:
+    rgba(0, 0, 0, 0.46) !important;
+
+  opacity: 1;
+}
+
+
+
+/* SEARCH CLOSE */
+
+#site-search-close {
+  position: absolute !important;
+
+  top: 14px;
+  right: 15px;
+
+  width: 32px;
+  height: 32px;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+
+  background: transparent !important;
+
+  color: rgba(0, 0, 0, 0.58) !important;
+
+  cursor: pointer;
+
+  box-shadow: none !important;
+
+  z-index: 10;
+}
+
+
+
+/* RESULTS */
+
+#site-search-panel .site-search-results-wrap {
+  margin-top: 20px;
+
+  background: transparent !important;
+
+  color:
+    rgba(0, 0, 0, 0.76) !important;
+}
+
+
+#site-search-panel .site-search-results-wrap a {
+  color: #111111 !important;
+
+  text-decoration: none !important;
+}
+
+
+
+/* ==========================================================
+   SMALL SCREEN
+
+   850px 이하에서는 메뉴 크기를 제한해서
+   서로 겹치는 것을 방지
+   ========================================================== */
+
+@media (max-width: 850px) {
+
+  .ns-nav > a {
+    font-size: 10px;
+  }
+
+
+  .ns-divider {
+    font-size: 9px;
+  }
+
+
+  .ns-nav {
+    gap: 4px;
+  }
+
+
+  .ns-nav-left {
+    left: 15px;
+  }
+
+
+  .ns-nav-right {
+    right: 15px;
+  }
+
+}
+
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 650px) {
+
+  #site-search-panel[aria-hidden="false"] {
+    padding-top: 80px;
+  }
+
+
+  #site-search-panel .site-search-panel__inner {
+    width:
+      calc(100vw - 28px);
+
+    max-height:
+      calc(100vh - 100px);
+
+    padding:
+      20px
+      21px
+      25px;
+  }
+
+
+  #site-search-input {
+    font-size: 17px;
+  }
+
+}

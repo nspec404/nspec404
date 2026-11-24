@@ -129,6 +129,15 @@
   }
 
   openButton.addEventListener("click", openSearch);
+
+  document.querySelectorAll('button[id$="-search-open"]:not(#site-search-open)').forEach(button => {
+    button.addEventListener("click", async () => {
+      await loadSearchData();
+      if (panel.getAttribute("aria-hidden") === "false") {
+        runSearch();
+      }
+    });
+  });
   closeButton.addEventListener("click", closeSearch);
   input.addEventListener("input", runSearch);
 

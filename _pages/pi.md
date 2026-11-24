@@ -159,7 +159,6 @@ classes: wide
             alt="Portrait from the KNU faculty profile"
             width="189" height="253"
             decoding="async"
-            onerror="this.hidden = true; this.parentElement.classList.add('is-unavailable');"
           >
         </div>
         <p class="pi-photo-caption">NanoSpectroscopy Laboratory</p>
@@ -259,6 +258,18 @@ classes: wide
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  const portrait = document.querySelector(".pi-portrait img");
+  if (portrait) {
+    const showPortraitFallback = () => {
+      portrait.hidden = true;
+      portrait.parentElement.classList.add("is-unavailable");
+    };
+
+    portrait.addEventListener("error", showPortraitFallback, { once: true });
+    if (portrait.complete && portrait.naturalWidth === 0) {
+      showPortraitFallback();
+    }
+  }
 
   const searchOpen =
     document.getElementById("pi-search-open");

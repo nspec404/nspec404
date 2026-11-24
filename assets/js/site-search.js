@@ -13,6 +13,7 @@
     return;
   }
 
+  const searchIndexUrl = panel.dataset.searchIndexUrl;
   let searchData = [];
   let dataLoaded = false;
 
@@ -36,7 +37,7 @@
     if (dataLoaded) return;
 
     try {
-      const response = await fetch("/search.json", { cache: "no-store" });
+        const response = await fetch(searchIndexUrl, { cache: "no-store" });
 
       if (!response.ok) {
         throw new Error(`search.json 로드 실패: ${response.status}`);
@@ -45,7 +46,7 @@
       const data = await response.json();
 
       searchData = Array.isArray(data)
-        ? data.filter(item => item && item.url && item.url !== "/search.json")
+        ? data.filter(item => item && item.url && item.url !== searchIndexUrl)
         : [];
 
       dataLoaded = true;

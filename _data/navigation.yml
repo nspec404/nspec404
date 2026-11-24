@@ -26,8 +26,8 @@ main:
   - title: "Instruments"
     url: /instruments/
     
-  - title: "Software"
-    url: /Software/
+  - title: "software"
+    url: /software/
     
   # - title: "CV"
   #   url: /cv-json/

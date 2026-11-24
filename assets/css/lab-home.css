@@ -955,3 +955,7 @@ body {
   }
 
 }
+
+.page__citation {
+  font-size: smaller;
+}
